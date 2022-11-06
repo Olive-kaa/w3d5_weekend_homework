@@ -23,7 +23,7 @@ def adding_book():
     add_new_book(new_book)
     return redirect('/books')
 
-@app.route('/books/delete/<title>', methods=["POST"])
+@app.route('/delete/<title>', methods=["POST"])
 def deleting_item_from_library(title):
     remove_book(title)
     return redirect('/books')
