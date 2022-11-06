@@ -6,26 +6,27 @@
     {% for item in all_books %}
     <h2><a href="/books/{{all_books.index(item)}}" target="_blank"><b>{{ item.title }}:</b></a></h2>
     <h3>Author: {{ item.author }}</h3>
-    <ul>
+    <ul class="book-details">
         <li>Genre: {{ item.genre }}</li>
         <li>Book status: {{ item.check_in_status }}</li> 
     </ul>
 
-        <form class="form-inline" action="/delete/{{ item.title }}" method="post">
+        <form action="/delete/{{ item.title }}" method="post">
             <input type="submit" value="Delete">
         </form>
 
     {% endfor %}
-    <form action="/books" method="post">
-        <label for="title">Book title</label>
-        <input type="text" id="title" name="title" >
-        <label for="author">Author</label>
-        <input type="text" id="author" name="author">
-        <label for="genre">Genre</label>
-        <input type="text" id="genre" name="genre">
-        <!-- <label for="description">Book description</label> -->
-        <!-- <textarea id="description" name="description" rows="3" cols="15"></textarea> -->
-        <input type="submit" value="Add book">
-    </form>
-
+    <div id="adding-book">
+        <form action="/books" method="post">
+            <label for="title">Book title</label>
+            <input type="text" id="title" name="title" >
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+            <label for="genre">Genre</label>
+            <input type="text" id="genre" name="genre">
+            <!-- <label for="description">Book description</label> -->
+            <!-- <textarea id="description" name="description" rows="3" cols="15"></textarea> -->
+            <input type="submit" value="Add book">
+        </form>
+    </div>
 {% endblock %}
